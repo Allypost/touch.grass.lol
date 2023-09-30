@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>touch some grass</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./grass.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(10px);
+        transform: scale(1.1);
+        z-index: -2;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      #container {
+        display: flex;
+        flex-flow: column;
+        min-height: 100vh;
+        justify-content: center;
+      }
+
+      #grass {
+        z-index: 5;
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        object-fit: cover;
+        cursor: url("./hand.128x128.png"), pointer;
+        user-select: none;
+      }
+
+      h1 {
+        display: inline;
+        backdrop-filter: blur(10px);
+        align-self: baseline;
+        padding: .1em .5em;
+        border-radius: 8px;
+        background-color: rgba(255,255,255,.1);
+        font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive;
+        margin: 0 auto;
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>here, touch some grass</h1>
+      <img id="grass" draggable="false" src="./grass.jpg" alt="some nice grass">
+    </div>
+  </body>
+</html>
