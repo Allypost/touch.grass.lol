@@ -5,6 +5,7 @@
       body {
         margin: 0;
         padding: 0;
+        overflow: hidden;
       }
 
       body::before {
@@ -13,8 +14,10 @@
         top: 0;
         left: 0;
         width: 100%;
+        width: 100vw;
         height: 100%;
-        background-image: url("./grass.jpg");
+        height: 100vh;
+        background-image: url("./grass.webp");
         background-repeat: no-repeat;
         background-size: cover;
         filter: blur(10px);
@@ -37,18 +40,23 @@
         height: auto;
         max-height: 50vh;
         object-fit: cover;
-        cursor: url("./hand.128x128.png"), pointer;
+        cursor: url("./hand-open.128x128.webp"), pointer;
         user-select: none;
+      }
+
+      #grass:active {
+        cursor: url("./hand-flat.128x128.webp"), pointer;
       }
 
       h1 {
         display: inline;
         backdrop-filter: blur(10px);
         align-self: baseline;
-        padding: .1em .5em;
+        padding: 0.1em 0.5em;
         border-radius: 8px;
-        background-color: rgba(255,255,255,.1);
-        font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive;
+        background-color: rgba(255, 255, 255, 0.1);
+        font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE",
+          "Comic Neue", cursive;
         margin: 0 auto;
         margin-bottom: 1em;
       }
@@ -57,7 +65,24 @@
   <body>
     <div id="container">
       <h1>here, touch some grass</h1>
-      <img id="grass" draggable="false" src="./grass.jpg" alt="some nice grass">
+      <img
+        id="grass"
+        draggable="false"
+        src="./grass.webp"
+        alt="some nice grass"
+      />
     </div>
+
+    <!-- preload pointer images -->
+    <img
+      src="./hand-flat.128x128.webp"
+      alt="hand laying flat seen from the back"
+      style="opacity: 0; position: absolute"
+    />
+    <img
+      src="./hand-open.128x128.webp"
+      alt="hand laying flat seen from the back"
+      style="opacity: 0; position: absolute"
+    />
   </body>
 </html>
